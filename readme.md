@@ -6,7 +6,20 @@
 scrape initial search page on comic series
 
 - [x] Return list of all comic issues on title
-- [x] puts this list into an array of objects called comics with the following format
+- [x] puts this list into an array of objects called comics with the following json/mogodb format:
+
+```javascript
+    comics: {
+        comic: [
+            {
+                comic: '',
+                href: '',
+                pages: []
+            }
+        ]
+    }
+```
+
 - [x] iterate thru this list taking the title of the comice and creating a directory for each
 
 ## 2nd module: scrape_page.js
@@ -22,10 +35,14 @@ scrape initial search page on comic series
 
 
 ## additional things to build
-1. make simple interface for pasting linke
+1. make simple interface for pasting link
 2. detect whether this has been done before?
 3. detect if directories have been made if so move to next step
-4. detect if images have been saved, if not save missing, skip exisiting
+4. detect if images have been saved, if not save missing, skip 
+exisiting
+5. make interface to show progress bars for all steps
+6. store data into flat text file or mongodb?
+
 
 
 
