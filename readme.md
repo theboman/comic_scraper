@@ -1,15 +1,15 @@
 # Scraper for Comics
 
--- we are assuming you have a folder created called /storage within the local folder for all images to be collected
+-- we are assuming you have created a folder called /storage within the local folder for all images to be collected.
 
-## first module: index.js
+## 1st module: index.js
 scrape initial search page on comic series
 
 - [x] Return list of all comic issues on title
 - [x] puts this list into an array of objects called comics with the following format
 - [x] iterate thru this list taking the title of the comice and creating a directory for each
 
-## second module: scrape_page.js
+## 2nd module: scrape_page.js
 - [x] goto each issue and get list of all pages that make up each issue add this to the array of objects created
 - [x] get first image on this first page
 
