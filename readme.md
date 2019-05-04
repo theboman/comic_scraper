@@ -6,7 +6,7 @@
 scrape initial search page on comic series
 
 - [x] Return list of all comic issues on title
-- [x] puts this list into an array of objects called comics with the following json/mogodb format:
+- [x] puts this list into an object of arrays called comics with the following json/mogodb format:
 
 ```javascript
     comics: {
@@ -20,7 +20,7 @@ scrape initial search page on comic series
     }
 ```
 
-- [x] iterate thru this list taking the title of the comice and creating a directory for each
+- [x] iterate thru this list taking the title of the comic and creating a directory for each comic issue.
 
 ## 2nd module: scrape_page.js
 - [x] goto each issue and get list of all pages that make up each issue add this to the array of objects created

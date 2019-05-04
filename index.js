@@ -1,4 +1,4 @@
-const request = require('request');
+const request = require('request-promise');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
@@ -24,6 +24,7 @@ let comics = {
 
 //this is the search on a particular comic
 //this gets the number of issues available
+
 request(url, (error, response, html) => {
   if (!error && response.statusCode == 200) {
     const $ = cheerio.load(html);
@@ -63,7 +64,9 @@ request(url, (error, response, html) => {
       console.log('this is the number of comics: ', numberOfComics);
     });
   }
-});
+}).then(function (response){
+  console.log(comics);
+})
 
 var numberOfComicsAfter = comics.comic.length;
 console.log('this is the number of comics after: ', numberOfComicsAfter);
