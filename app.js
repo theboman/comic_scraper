@@ -39,34 +39,25 @@ rp(options)
       const elLink = $(el)
         .find('a')
         .attr('href');
-
-      // alright got all the scrapes, now push this into an array of objects
-
       comics.comic.push({});
       comics.comic[i].name = elTitle;
       comics.comic[i].href = elLink;
       comics.comic[i].pages = [];
 
-      //console.log(elTitle);
-      //console.log(elLink);
-      //console.log(i);
-      //console.log('from 1st then - this is the stored ', comics.comic[i]);
-
-      fs.mkdirSync(`./storage/${elTitle}`);
-      //console.log('--------- Directory made!---------: ');
+      // need to add a check if these directories exist if so, move on.
+      //fs.mkdirSync(`./storage/${elTitle}`);
     });
     numberofIssues = comics.comic.length;
   })
   .then(() => {
     //console.log('this is 2nd then, number of issues: ', numberofIssues);
     //console.log('this is comics from 2nd then :', comics);
-    url = comics.comic[0].href;
-    //console.log('this is url: ', url);
     for (i = 0; i < numberofIssues; i++) {
-      var comLink = comics.comic[i].href;
+      let comLink = comics.comic[i].href;
 
       //console.log('this is is every link:', comLink);
-      second.getPages(comLink);
+      second.getPages(comLink, comics, i);
+
       //console.log('this is myarray:', myArray);
     }
   })
