@@ -1,7 +1,7 @@
 var rp = require('request-promise');
 const cheerio = require('cheerio');
 const fs = require('fs');
-//const getPages = require('./getnumofpages.js');
+const second = require('./getnumofpages.js');
 
 let comics = {
   comic: [
@@ -17,6 +17,7 @@ let comics = {
     // }
   ]
 };
+let numberofIssues = 0;
 
 var options = {
   uri: 'https://readcomicsonline.ru/comic/deadpool-assassin-2018',
@@ -54,17 +55,18 @@ rp(options)
       fs.mkdirSync(`./storage/${elTitle}`);
       //console.log('--------- Directory made!---------: ');
     });
+    numberofIssues = comics.comic.length;
   })
   .then(() => {
-    console.log('this is comics from 2nd then : ', comics);
-    var numberofIssues = comics.comic.length;
-    console.log('number of issues for this title: ', numberofIssues);
+    console.log('this is 2nd then, number of issues: ', numberofIssues);
+    console.log('this is comics from 2nd then :', comics);
     url = comics.comic[0].href;
     console.log('this is url: ', url);
     for (i = 0; i < numberofIssues; i++) {
       var comLink = comics.comic[i].href;
 
       console.log('this is is every link:', comLink);
+      second.getPages(comLink);
     }
   })
   .catch(function(err) {

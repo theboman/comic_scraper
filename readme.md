@@ -22,12 +22,12 @@ scrape initial search page on comic series
 
 - [x] iterate thru this list taking the title of the comic and creating a directory for each comic issue.
 
-## 2nd module: scrape_page.js
+## 2nd module: getnumofpages.js
 - [x] goto each issue and get list of all pages that make up each issue add this to the array of objects created
 - [x] get first image on this first page
 
 
-## 3rd module: store_image.js
+## 3rd module: getandstoreimage.js
 - [ ] iterate thru all pages for issue getting each pages image and save this to comic issue's directory
 
 ## put all together into one cohesive program
