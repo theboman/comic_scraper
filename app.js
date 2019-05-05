@@ -50,7 +50,7 @@ rp(options)
       //console.log(elTitle);
       //console.log(elLink);
       //console.log(i);
-      console.log('from 1st then - this is the stored ', comics.comic[i]);
+      //console.log('from 1st then - this is the stored ', comics.comic[i]);
 
       fs.mkdirSync(`./storage/${elTitle}`);
       //console.log('--------- Directory made!---------: ');
@@ -58,15 +58,16 @@ rp(options)
     numberofIssues = comics.comic.length;
   })
   .then(() => {
-    console.log('this is 2nd then, number of issues: ', numberofIssues);
-    console.log('this is comics from 2nd then :', comics);
+    //console.log('this is 2nd then, number of issues: ', numberofIssues);
+    //console.log('this is comics from 2nd then :', comics);
     url = comics.comic[0].href;
-    console.log('this is url: ', url);
+    //console.log('this is url: ', url);
     for (i = 0; i < numberofIssues; i++) {
       var comLink = comics.comic[i].href;
 
-      console.log('this is is every link:', comLink);
+      //console.log('this is is every link:', comLink);
       second.getPages(comLink);
+      //console.log('this is myarray:', myArray);
     }
   })
   .catch(function(err) {
