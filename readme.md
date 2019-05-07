@@ -2,10 +2,12 @@
 
 -- we are assuming you have created a folder called /storage within the local folder for all images to be collected.
 
-## 1st module: index.js
-scrape initial search page on comic series
+## index.js loads all 3 modules
 
-- [x] Return list of all comic issues on title
+## 1st module: app.js
+scrape initial search page on comic series and adds each comic issue to object of arrays comics
+
+- [x] get list of all comic issues on title
 - [x] puts this list into an object of arrays called comics with the following json/mogodb format:
 
 ```javascript
@@ -24,7 +26,6 @@ scrape initial search page on comic series
 
 ## 2nd module: getnumofpages.js
 - [x] goto each issue and get list of all pages that make up each issue add this to the array of objects created
-- [x] get first image on this first page
 
 
 ## 3rd module: getandstoreimage.js
