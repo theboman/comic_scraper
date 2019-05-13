@@ -1,23 +1,12 @@
-var rp = require('request-promise');
+let rp = require('request-promise');
 const cheerio = require('cheerio');
 const fs = require('fs');
-const second = require('./getnumofpages.js');
+let second = require('./getnumofpages.js');
+let comics = require('./variables.js');
 
-let comics = {
-  comic: [
-    // {
-    //   name: '',
-    //   href: '',
-    //   pages: []
-    // }
-    // {
-    //   name: '',
-    //   href: '',
-    //   pages: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-    // }
-  ]
-};
 let numberofIssues = 0;
+
+//console.log('this is comics: ', comics);
 
 var options = {
   uri: 'https://readcomicsonline.ru/comic/deadpool-assassin-2018',
@@ -47,15 +36,16 @@ rp(options)
       // need to add a check if these directories exist if so, move on.
       //fs.mkdirSync(`./storage/${elTitle}`);
     });
+    //console.log(comics);
     numberofIssues = comics.comic.length;
   })
   .then(() => {
     //console.log('this is 2nd then, number of issues: ', numberofIssues);
-    //console.log('this is comics from 2nd then :', comics);
+    console.log('this is comics from 2nd then :', comics);
     for (i = 0; i < numberofIssues; i++) {
       let comLink = comics.comic[i].href;
 
-      //console.log('this is is every link:', comLink);
+      console.log('this is is every link:', comLink);
       second.getPages(comLink, comics, i);
 
       //console.log('this is myarray:', myArray);
