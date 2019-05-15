@@ -40,15 +40,10 @@ rp(options)
     numberofIssues = comics.comic.length;
   })
   .then(() => {
-    //console.log('this is 2nd then, number of issues: ', numberofIssues);
-    console.log('this is comics from 2nd then :', comics);
     for (i = 0; i < numberofIssues; i++) {
       let comLink = comics.comic[i].href;
-
-      console.log('this is is every link:', comLink);
+      //console.log('this is is every link:', comLink);
       second.getPages(comLink, comics, i);
-
-      //console.log('this is myarray:', myArray);
     }
   })
   .catch(function(err) {

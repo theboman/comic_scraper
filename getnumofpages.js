@@ -1,11 +1,10 @@
 const rp = require('request-promise');
 const cheerio = require('cheerio');
 const myArray = [];
-//const variables = require('./variables.js');
-//comics = variables.comics;
+const storeImage = require('./store_image.js');
 
 //let Url = 'https://readcomicsonline.ru/comic/deadpool-assassin-2018/6'; // for testing only
-
+// this function is called each time with the index
 getPages = (Url, comics, index) => {
   const myArray = [];
   console.log('this is comics from 2nd: ', comics);
@@ -22,33 +21,35 @@ getPages = (Url, comics, index) => {
             .replace(/\s\s+/gm, '');
 
           comics.comic[index].pages.push(issueNumPages);
-          console.log('this is comics of comic: ', comics.comic[index].pages);
+          //console.log('this is comics of comic: ', comics.comic[index].pages);
           // should work but got kicked off network!
           myArray.push(issueNumPages);
         });
-      console.log(
-        'this is the url:',
-        Url,
-        'this is index: ',
-        i,
-        ' - this is myArray from getPages:',
-        myArray
-      );
+      // console.log(
+      //   'this is the url:',
+      //   Url,
+      //   'this is index: ',
+      //   i,
+      //   ' - this is myArray from getPages:',
+      //   myArray
+      // );
       //return myArray;
     }
   })
     .then(function() {
-      console.log('-----------start of ---------index: ', index);
-      console.log('this is finished myArray: ', myArray);
+      //console.log('-----------start of ---------index: ', index);
+      //console.log('this is finished myArray: ', myArray);
       //comics.comic[i].pages.push(myArray);
-      console.log('this is comics.comic.pages : ', comics.comic[index].pages);
-
-      console.log('-----------end of ---------index: ', index);
-    })
-    .then(function() {
-      console.log('finished');
+      //console.log('this is comics.comic.pages : ', comics.comic[index].pages);
+      //return comics;
       console.log('this is the finished comics: ', comics);
+
+      //console.log('-----------end of ---------index: ', index);
     })
+    // .then(function() {
+    //   console.log('finished');
+    //   console.log('this is the finished comics: ', comics);
+    // })
     .catch(function(err) {
       return console.log(err);
     });
