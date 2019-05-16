@@ -64,6 +64,7 @@ function storeImages(comics) {
       //console.log('this is still comics href:', comics.comic[index].href);
       // get the entire href for each page
       pagehref = '';
+      // build the href - leave alone if its the first page
       pIndex == 0
         ? (pagehref = comics.comic[index].href)
         : (pagehref = `${comics.comic[index].href}/${element}`);
