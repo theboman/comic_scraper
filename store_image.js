@@ -2,6 +2,10 @@ const request = require('request');
 const cheerio = require('cheerio');
 const fs = require('fs');
 
+// this is an example of the structure for the object holding comic title and number of issues we need to build
+// function that retrievs each comic image
+// a loop that goes thru pages - href+pages[i]
+
 let comics = {
   comic: [
     {
